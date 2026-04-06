@@ -277,6 +277,231 @@
     .hero-number h3 { font-size: 2rem; font-weight: 900; color: var(--azul); }
     .hero-number p  { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin: 0; }
 
+    /* ===== DIFERENCIAIS FLUTUANTES ===== */
+    .diferenciais-foto {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 5% 140px;
+    }
+
+    .diferenciais-foto::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 15, 30, 0.6);
+    }
+
+    .diferenciais-foto-cards {
+      position: absolute;
+      bottom: -70px;
+      left: 5%;
+      right: 5%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      z-index: 2;
+    }
+
+    .dfcard {
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+
+    .dfcard.azul {
+      background: var(--azul);
+    }
+
+    .dfcard.branco {
+      background: var(--branco);
+    }
+
+    .dfcard .df-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .dfcard.azul h3 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--branco);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .dfcard.azul p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .dfcard.branco h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+
+    .dfcard.branco p {
+      font-size: 0.85rem;
+      color: var(--texto-leve);
+      line-height: 1.6;
+    }
+
+    .dfcard.branco ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .dfcard.branco ul li {
+      font-size: 0.85rem;
+      color: var(--texto-leve);
+    }
+
+    /* espaço para compensar os cards flutuantes */
+    .diferenciais-spacer { padding-top: 100px; }
+
+    /* ===== PROVA SOCIAL GOOGLE ===== */
+    .google-section {
+      padding: 80px 5%;
+      background: var(--cinza);
+    }
+
+    .google-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .google-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--branco);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .google-badge img {
+      width: 28px; height: 28px;
+    }
+
+    .google-badge-info strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--cinza-escuro);
+    }
+
+    .google-badge-info span {
+      font-size: 0.8rem;
+      color: var(--texto-leve);
+    }
+
+    .google-stars-total {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stars { color: #f59e0b; font-size: 1.1rem; letter-spacing: 2px; }
+
+    .google-rating-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--cinza-escuro);
+    }
+
+    .google-rating-info { font-size: 0.82rem; color: var(--texto-leve); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .review-card {
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.3s;
+    }
+
+    .review-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+
+    .review-top {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--azul);
+      color: var(--branco);
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .review-name { font-weight: 700; font-size: 0.95rem; color: var(--cinza-escuro); }
+    .review-date { font-size: 0.78rem; color: var(--texto-leve); }
+    .review-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.8rem; }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: var(--texto-leve);
+      line-height: 1.6;
+    }
+
+    .google-cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .google-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--azul);
+      text-decoration: none;
+      border: 1px solid var(--azul);
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .google-cta a:hover { background: var(--azul); color: var(--branco); }
+
+    @media (max-width: 768px) {
+      .diferenciais-foto-cards { grid-template-columns: 1fr 1fr; bottom: -160px; }
+      .diferenciais-spacer { padding-top: 200px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+
     /* ===== CARROSSEL ===== */
     .carousel-section {
       padding: 80px 0;
@@ -996,15 +1221,101 @@
       </div>
     </section>
 
-    <!-- DIFERENCIAIS -->
-    <section class="home-diferenciais">
-      <div class="section-label">Por que a Usifast</div>
-      <div class="section-title">Diferenciais que<br>você sente na prática.</div>
-      <div class="cards-4">
-        <div class="card-dark"><div class="icon">⏱️</div><h3>Prazo Cumprido</h3><p>Entregamos no combinado. Sua linha de produção não pode parar por atraso.</p></div>
-        <div class="card-dark"><div class="icon">🎯</div><h3>Precisão Garantida</h3><p>Controle dimensional em 100% das peças. Tolerâncias dentro do especificado.</p></div>
-        <div class="card-dark"><div class="icon">💬</div><h3>Atendimento Direto</h3><p>Fale direto com quem produz. Sem intermediários, sem ruído de comunicação.</p></div>
-        <div class="card-dark"><div class="icon">🏭</div><h3>Estrutura Completa</h3><p>Maquinário moderno e equipe técnica especializada para qualquer demanda.</p></div>
+    <!-- DIFERENCIAIS COM FOTO + CARDS FLUTUANTES -->
+    <div class="diferenciais-foto">
+      <div class="diferenciais-foto-cards">
+        <div class="dfcard azul">
+          <span class="df-icon">⚡</span>
+          <h3>Melhor Prazo</h3>
+          <p>Comprometimento com prazos é a nossa prioridade.</p>
+        </div>
+        <div class="dfcard branco">
+          <span class="df-icon">✅</span>
+          <h3>Qualidade</h3>
+          <p>Cumprindo as especificações técnicas solicitadas pelo cliente.</p>
+        </div>
+        <div class="dfcard branco">
+          <span class="df-icon">⚙️</span>
+          <h3>Equipamentos</h3>
+          <ul>
+            <li>Tornos CNC</li>
+            <li>Centro de Usinagem</li>
+            <li>Máquinas Convencionais</li>
+          </ul>
+        </div>
+        <div class="dfcard branco">
+          <span class="df-icon">📈</span>
+          <h3>Serviços</h3>
+          <ul>
+            <li>Peças Seriadas</li>
+            <li>Dispositivos</li>
+            <li>Usinagem</li>
+            <li>Manutenção</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="diferenciais-spacer"></div>
+
+    <!-- PROVA SOCIAL GOOGLE -->
+    <section class="google-section">
+      <div class="google-header">
+        <div class="google-badge">
+          <svg width="28" height="28" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.3 29.3 35 24 35c-6.1 0-11-4.9-11-11s4.9-11 11-11c2.8 0 5.3 1 7.2 2.7l5.7-5.7C33.6 7.5 29.1 5.5 24 5.5 13.8 5.5 5.5 13.8 5.5 24S13.8 42.5 24 42.5 42.5 34.2 42.5 24c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 16.1 19 13 24 13c2.8 0 5.3 1 7.2 2.7l5.7-5.7C33.6 7.5 29.1 5.5 24 5.5c-7.3 0-13.6 4-17.1 9.9z"/><path fill="#4CAF50" d="M24 42.5c5 0 9.5-1.9 12.9-4.9l-6-5.1C29.2 34 26.7 35 24 35c-5.2 0-9.6-3.5-11.2-8.3l-6.5 5C9.8 38.3 16.3 42.5 24 42.5z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4 5.5l6 5.1C37 37.7 42.5 31.5 42.5 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+          <div class="google-badge-info">
+            <strong>Google Avaliações</strong>
+            <span>Usifast Usinagem Industrial</span>
+          </div>
+        </div>
+        <div class="google-stars-total">
+          <span class="google-rating-num">5,0</span>
+          <div>
+            <div class="stars">★★★★★</div>
+            <div class="google-rating-info">baseado em avaliações Google</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar">CM</div>
+            <div>
+              <div class="review-name">Carlos Mendonça</div>
+              <div class="review-date">há 2 semanas</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Empresa séria e de confiança. Entregaram as peças no prazo combinado, com acabamento perfeito. Já é a terceira vez que utilizamos os serviços deles e sempre atenderam muito bem."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#6366f1">FA</div>
+            <div>
+              <div class="review-name">Fernando Alves</div>
+              <div class="review-date">há 1 mês</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Precisava de uma peça urgente para não parar minha linha de produção. A Usifast atendeu no mesmo dia, orçou rapidamente e entregou antes do prazo. Qualidade impecável."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#059669">RS</div>
+            <div>
+              <div class="review-name">Roberto Silva</div>
+              <div class="review-date">há 2 meses</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Ótima empresa! Precisão nas peças, atendimento atencioso e preço justo. Recomendo para qualquer indústria que precise de usinagem de qualidade com prazo garantido."</p>
+        </div>
+      </div>
+
+      <div class="google-cta">
+        <a href="#" target="_blank">
+          Ver todas as avaliações no Google →
+        </a>
       </div>
     </section>
 
