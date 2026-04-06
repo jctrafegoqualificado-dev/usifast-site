@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usifast | Usinagem Industrial de Precisão</title>
+  <meta name="description" content="Usifast — soluções em usinagem industrial de precisão. Peças sob medida, manutenção e fabricação para indústrias de todo o Brasil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --azul: #047ec4;
+      --azul-dark: #035f94;
+      --azul-light: #e8f4fc;
+      --branco: #ffffff;
+      --cinza: #f5f7fa;
+      --cinza-escuro: #1a1a2e;
+      --texto: #2d3748;
+      --texto-leve: #718096;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texto);
+      background: var(--branco);
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--branco);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--azul);
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: var(--cinza-escuro); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--texto);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--azul); }
+
+    .nav-cta {
+      background: var(--azul);
+      color: var(--branco) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--azul-dark); color: var(--branco) !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--cinza-escuro) 0%, #0a1628 60%, #047ec4 100%);
+      display: flex;
+      align-items: center;
+      padding: 70px 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(4,126,196,0.3) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(4,126,196,0.2);
+      border: 1px solid rgba(4,126,196,0.5);
+      color: #7dd3fc;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--branco);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 span { color: var(--azul); }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 560px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--azul);
+      color: var(--branco);
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid var(--azul);
+    }
+
+    .btn-primary:hover { background: var(--azul-dark); border-color: var(--azul-dark); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--branco);
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--branco); }
+
+    .hero-numbers {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero-number h3 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--azul);
+    }
+
+    .hero-number p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+    }
+
+    /* SEÇÕES */
+    section { padding: 80px 5%; }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--azul);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--cinza-escuro);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--texto-leve);
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    /* SOBRE */
+    .sobre {
+      background: var(--cinza);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .sobre-img {
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
+      border-radius: 16px;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .mvv {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .mvv-card {
+      background: var(--branco);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid var(--azul);
+    }
+
+    .mvv-card h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--azul);
+      margin-bottom: 0.5rem;
+    }
+
+    .mvv-card p {
+      font-size: 0.95rem;
+      color: var(--texto-leve);
+      line-height: 1.6;
+    }
+
+    /* SERVIÇOS */
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .servico-card {
+      background: var(--branco);
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .servico-card:hover {
+      border-color: var(--azul);
+      box-shadow: 0 8px 30px rgba(4,126,196,0.12);
+      transform: translateY(-4px);
+    }
+
+    .servico-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--azul-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    .servico-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--cinza-escuro);
+      margin-bottom: 0.7rem;
+    }
+
+    .servico-card p {
+      font-size: 0.9rem;
+      color: var(--texto-leve);
+      line-height: 1.6;
+    }
+
+    /* DIFERENCIAIS */
+    .diferenciais {
+      background: var(--cinza-escuro);
+    }
+
+    .diferenciais .section-title { color: var(--branco); }
+    .diferenciais .section-label { color: #7dd3fc; }
+    .diferenciais .section-sub { color: rgba(255,255,255,0.6); }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .diferencial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .diferencial-card .icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .diferencial-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 0.5rem;
+    }
+
+    .diferencial-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* SEGMENTOS */
+    .segmentos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .segmento-tag {
+      background: var(--azul-light);
+      border: 1px solid rgba(4,126,196,0.2);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--azul-dark);
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
+      text-align: center;
+      padding: 80px 5%;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--branco);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-section .btn-primary {
+      background: var(--branco);
+      color: var(--azul);
+      border-color: var(--branco);
+      font-size: 1.05rem;
+      padding: 1rem 2.5rem;
+    }
+
+    /* CONTATO */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .contato-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cinza-escuro);
+      margin-bottom: 1.5rem;
+    }
+
+    .contato-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .contato-item .icon {
+      width: 42px;
+      height: 42px;
+      background: var(--azul-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contato-item div h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--texto-leve);
+      margin-bottom: 0.2rem;
+    }
+
+    .contato-item div p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--cinza-escuro);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    form input, form textarea, form select {
+      padding: 0.85rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      color: var(--texto);
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    form input:focus, form textarea:focus, form select:focus {
+      border-color: var(--azul);
+    }
+
+    form textarea { min-height: 130px; resize: vertical; }
+
+    form button {
+      background: var(--azul);
+      color: var(--branco);
+      padding: 0.9rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    form button:hover { background: var(--azul-dark); }
+
+    /* FOOTER */
+    footer {
+      background: var(--cinza-escuro);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.85rem;
+    }
+
+    footer span { color: var(--azul); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .sobre-grid, .contato-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .diferenciais-grid { grid-template-columns: repeat(2,1fr); }
+      .segmentos-grid { grid-template-columns: repeat(2,1fr); }
+      .hero-numbers { gap: 1.5rem; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">USI<span>FAST</span></div>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#segmentos">Segmentos</a></li>
+      <li><a href="#contato" class="nav-cta">Solicitar Orçamento</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">⚙️ Usinagem Industrial de Precisão</div>
+      <h1>Peças que <span>não podem</span> falhar.</h1>
+      <p>A Usifast fabrica e usina peças industriais com precisão micrométrica. Do protótipo à produção em série — entregamos exatamente o que sua operação precisa.</p>
+      <div class="hero-btns">
+        <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+        <a href="#servicos" class="btn-outline">Ver Serviços</a>
+      </div>
+      <div class="hero-numbers">
+        <div class="hero-number">
+          <h3>XX+</h3>
+          <p>Anos de experiência</p>
+        </div>
+        <div class="hero-number">
+          <h3>XXX+</h3>
+          <p>Clientes atendidos</p>
+        </div>
+        <div class="hero-number">
+          <h3>XX</h3>
+          <p>Estados atendidos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="section-label">Quem somos</div>
+    <div class="section-title">Precisão que move<br>a indústria.</div>
+    <div class="sobre-grid">
+      <div class="sobre-img">[ FOTO DA EMPRESA / MÁQUINAS ]</div>
+      <div>
+        <p class="section-sub">A Usifast nasceu da necessidade de oferecer usinagem industrial com qualidade, agilidade e compromisso real com o prazo. Atendemos indústrias dos mais variados segmentos com soluções personalizadas e tecnologia de ponta.</p>
+        <div class="mvv">
+          <div class="mvv-card">
+            <h4>Missão</h4>
+            <p>Fornecer soluções em usinagem industrial com precisão, agilidade e qualidade, contribuindo para a eficiência e competitividade dos nossos clientes.</p>
+          </div>
+          <div class="mvv-card">
+            <h4>Visão</h4>
+            <p>Ser referência nacional em usinagem de precisão, reconhecida pela excelência técnica e pela confiança que construímos com cada cliente.</p>
+          </div>
+          <div class="mvv-card">
+            <h4>Valores</h4>
+            <p>Precisão · Comprometimento · Agilidade · Ética · Inovação · Respeito ao cliente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="section-label">O que fazemos</div>
+    <div class="section-title">Serviços completos<br>em usinagem.</div>
+    <div class="servicos-grid">
+      <div class="servico-card">
+        <div class="servico-icon">⚙️</div>
+        <h3>Usinagem CNC</h3>
+        <p>Torneamento e fresamento CNC com alta precisão para peças complexas em diferentes materiais e especificações técnicas.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🔩</div>
+        <h3>Fabricação de Peças</h3>
+        <p>Produção de peças unitárias ou em série, do protótipo ao lote final, com controle dimensional rigoroso em cada etapa.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🛠️</div>
+        <h3>Manutenção Industrial</h3>
+        <p>Recuperação e manutenção de peças desgastadas, reduzindo paradas de linha e custo de reposição para sua indústria.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">📐</div>
+        <h3>Retífica</h3>
+        <p>Acabamento superficial com altíssima precisão dimensional para peças que exigem tolerâncias mínimas e superfície perfeita.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">🔧</div>
+        <h3>Solda e Caldeiraria</h3>
+        <p>Serviços de solda MIG, TIG e eletrodo, fabricação de estruturas metálicas e componentes sob medida para uso industrial.</p>
+      </div>
+      <div class="servico-card">
+        <div class="servico-icon">📦</div>
+        <h3>Fornecimento de Materiais</h3>
+        <p>Suprimento de matéria-prima processada: barras, chapas e tubos usinados conforme especificação do cliente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="diferenciais">
+    <div class="section-label">Por que a Usifast</div>
+    <div class="section-title">Diferenciais que<br>você sente na prática.</div>
+    <div class="diferenciais-grid">
+      <div class="diferencial-card">
+        <div class="icon">⏱️</div>
+        <h3>Prazo Cumprido</h3>
+        <p>Entregamos no combinado. Sua linha de produção não pode parar por atraso.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="icon">🎯</div>
+        <h3>Precisão Garantida</h3>
+        <p>Controle dimensional em 100% das peças. Tolerâncias dentro do especificado.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="icon">💬</div>
+        <h3>Atendimento Direto</h3>
+        <p>Fale direto com quem produz. Sem intermediários, sem ruído de comunicação.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="icon">🏭</div>
+        <h3>Estrutura Completa</h3>
+        <p>Maquinário moderno e equipe técnica especializada para qualquer demanda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGMENTOS -->
+  <section id="segmentos" style="background: var(--cinza);">
+    <div class="section-label">Quem atendemos</div>
+    <div class="section-title">Segmentos industriais<br>que confiamos.</div>
+    <p class="section-sub">Atendemos indústrias dos mais variados segmentos, sempre com a mesma precisão e comprometimento.</p>
+    <div class="segmentos-grid">
+      <div class="segmento-tag">🏗️ Construção Civil</div>
+      <div class="segmento-tag">🚗 Automotivo</div>
+      <div class="segmento-tag">⚡ Energia Elétrica</div>
+      <div class="segmento-tag">🌾 Agronegócio</div>
+      <div class="segmento-tag">🛢️ Petróleo & Gás</div>
+      <div class="segmento-tag">🏥 Equipamentos Médicos</div>
+      <div class="segmento-tag">✈️ Aeronáutico</div>
+      <div class="segmento-tag">🏭 Indústria Geral</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Precisa de uma peça com precisão e no prazo?</h2>
+    <p>Envie suas especificações e receba um orçamento em até 24 horas.</p>
+    <a href="#contato" class="btn-primary">Solicitar Orçamento Agora</a>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="section-label">Fale conosco</div>
+    <div class="section-title">Solicite seu<br>orçamento.</div>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <h3>Entre em contato</h3>
+        <div class="contato-item">
+          <div class="icon">📍</div>
+          <div>
+            <h4>Endereço</h4>
+            <p>[Rua, Número — Cidade/Estado]</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="icon">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>(XX) XXXXX-XXXX</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="icon">✉️</div>
+          <div>
+            <h4>E-mail</h4>
+            <p>contato@usifast.com.br</p>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="icon">🕐</div>
+          <div>
+            <h4>Horário</h4>
+            <p>Segunda a Sexta — 8h às 18h</p>
+          </div>
+        </div>
+      </div>
+      <form>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="text" placeholder="Empresa">
+        <input type="tel" placeholder="WhatsApp">
+        <input type="email" placeholder="E-mail">
+        <select>
+          <option value="">Tipo de serviço</option>
+          <option>Usinagem CNC</option>
+          <option>Fabricação de Peças</option>
+          <option>Manutenção Industrial</option>
+          <option>Retífica</option>
+          <option>Solda e Caldeiraria</option>
+          <option>Outro</option>
+        </select>
+        <textarea placeholder="Descreva sua necessidade (material, dimensões, quantidade, prazo...)"></textarea>
+        <button type="submit">Enviar Solicitação →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span>Usifast</span> — Usinagem Industrial de Precisão. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
