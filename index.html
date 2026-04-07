@@ -1740,6 +1740,158 @@
       .sobre-body { grid-template-columns: 1fr; gap: 3rem; }
     }
 
+    /* ===== PÁGINA SEGMENTOS — NOVA ===== */
+    .seg-hero {
+      background: linear-gradient(135deg, var(--cinza-escuro) 0%, #0a1628 70%, #047ec4 100%);
+      padding: 130px 5% 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .seg-hero-inner h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--branco);
+      line-height: 1.1;
+      margin: 0.8rem 0 1rem;
+    }
+
+    .seg-hero-inner p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+    .seg-hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+      max-width: 700px;
+    }
+
+    .seg-hero-tags span {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.45rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .seg-hero-tags span:hover { background: var(--azul); border-color: var(--azul); color: white; }
+
+    /* CARDS EXPANDÍVEIS */
+    .seg-section { padding: 80px 5%; background: var(--cinza); }
+
+    .seg-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+
+    .seg-exp-card {
+      border-radius: 18px;
+      border: 1px solid #e2e8f0;
+      background: var(--branco);
+      cursor: pointer;
+      transition: all 0.35s ease;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .seg-exp-card:hover { border-color: var(--azul); box-shadow: 0 8px 30px rgba(4,126,196,0.12); transform: translateY(-4px); }
+    .seg-exp-card.open  { border-color: var(--azul); box-shadow: 0 8px 30px rgba(4,126,196,0.15); }
+
+    .seg-exp-front, .seg-exp-back {
+      padding: 2rem 1.5rem;
+      transition: all 0.35s ease;
+    }
+
+    .seg-exp-back {
+      display: none;
+      background: var(--azul);
+      border-radius: 16px;
+    }
+
+    .seg-exp-card.open .seg-exp-front { display: none; }
+    .seg-exp-card.open .seg-exp-back  { display: block; }
+
+    .seg-exp-icon {
+      width: 56px; height: 56px;
+      background: var(--azul-light);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: background 0.3s;
+    }
+
+    .seg-exp-card:hover .seg-exp-icon { background: var(--azul); }
+    .seg-exp-card:hover .seg-exp-icon svg { stroke: white; }
+    .seg-exp-icon svg { transition: stroke 0.3s; }
+
+    .seg-exp-front h3 { font-size: 1rem; font-weight: 800; color: var(--cinza-escuro); margin-bottom: 0.4rem; }
+    .seg-exp-front p  { font-size: 0.82rem; color: var(--texto-leve); line-height: 1.5; margin-bottom: 1rem; }
+
+    .seg-exp-btn {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--azul);
+      display: inline-block;
+    }
+
+    .seg-exp-back h4 { font-size: 1rem; font-weight: 800; color: var(--branco); margin-bottom: 1rem; }
+
+    .seg-exp-back ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.2rem; }
+    .seg-exp-back ul li { font-size: 0.82rem; color: rgba(255,255,255,0.85); padding-left: 1rem; position: relative; }
+    .seg-exp-back ul li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: rgba(255,255,255,0.7); }
+
+    .seg-exp-close {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .seg-exp-close:hover { color: var(--branco); }
+
+    /* BANNER FOTO */
+    .seg-banner {
+      background-image: url('https://images.unsplash.com/photo-1581093458791-9d15482442a3?w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 100px 5%;
+      position: relative;
+    }
+
+    .seg-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,15,30,0.88) 0%, rgba(4,126,196,0.4) 100%);
+    }
+
+    .seg-banner-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+    }
+
+    .seg-banner-inner h2 { font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 900; color: var(--branco); line-height: 1.2; margin: 0.8rem 0 1rem; }
+    .seg-banner-inner p  { color: rgba(255,255,255,0.75); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+
+    @media (max-width: 1024px) { .seg-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px)  { .seg-cards-grid { grid-template-columns: 1fr; } }
+
     /* ===== PÁGINA CLIENTES & PARCEIROS ===== */
     .clientes-content { padding: 80px 5%; }
 
@@ -2750,61 +2902,211 @@
   <div class="page" id="page-segmentos">
     <div class="page-content">
 
-      <div class="page-hero" data-anim="fade-in">
-        <div class="section-label">Quem atendemos</div>
-        <h1>Segmentos industriais que servimos.</h1>
-        <p>Atendemos indústrias dos mais variados segmentos, sempre com o mesmo padrão de precisão e comprometimento.</p>
+      <!-- HERO -->
+      <div class="seg-hero">
+        <div class="seg-hero-inner" data-anim="fade-up">
+          <div class="section-label" style="color:#7dd3fc">Quem atendemos</div>
+          <h1>Indústrias que<br>confiam na Usifast.</h1>
+          <p>Atendemos os mais exigentes segmentos industriais com o mesmo padrão de precisão, prazo e qualidade.</p>
+        </div>
+        <div class="seg-hero-tags" data-anim="fade-up" data-delay="200">
+          <span>Automotivo</span><span>Agronegócio</span><span>Petróleo & Gás</span>
+          <span>Aeronáutico</span><span>Energia</span><span>Farmacêutico</span>
+          <span>Construção Civil</span><span>Indústria Geral</span>
+        </div>
       </div>
 
-      <div class="segmentos-content">
-        <div class="segmentos-grid-full">
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🏗️</div>
-            <h3>Construção Civil</h3>
-            <p>Peças e estruturas metálicas para obras e infraestrutura industrial.</p>
+      <!-- CARDS EXPANDÍVEIS -->
+      <div class="seg-section">
+        <div class="section-label" data-anim="fade-up">Segmentos atendidos</div>
+        <h2 class="section-title" data-anim="fade-up" data-delay="100">Clique em um segmento<br>para ver detalhes.</h2>
+        <div class="seg-cards-grid">
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="100" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <h3>Construção Civil</h3>
+              <p>Estruturas e peças metálicas</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Construção Civil</h4>
+              <ul>
+                <li>Estruturas metálicas sob medida</li>
+                <li>Peças para guindastes e elevadores</li>
+                <li>Componentes para andaimes</li>
+                <li>Fixações e conectores especiais</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🚗</div>
-            <h3>Automotivo</h3>
-            <p>Componentes de alta precisão para linha de montagem e reposição.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="150" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><circle cx="18" cy="17" r="2"/><circle cx="6" cy="17" r="2"/><path d="M4 17H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h12l4 4v8h-2"/><path d="M9 17h6"/></svg>
+              </div>
+              <h3>Automotivo</h3>
+              <p>Alta precisão para linha de montagem</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Automotivo</h4>
+              <ul>
+                <li>Eixos, buchas e pinos de precisão</li>
+                <li>Componentes de transmissão</li>
+                <li>Peças para freios e suspensão</li>
+                <li>Produção seriada com zero defeito</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">⚡</div>
-            <h3>Energia Elétrica</h3>
-            <p>Peças para geradores, transformadores e subestações elétricas.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="200" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <h3>Energia Elétrica</h3>
+              <p>Geradores, transformadores e subestações</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Energia Elétrica</h4>
+              <ul>
+                <li>Eixos para geradores e turbinas</li>
+                <li>Peças para transformadores</li>
+                <li>Componentes de subestações</li>
+                <li>Manutenção de equipamentos elétricos</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🌾</div>
-            <h3>Agronegócio</h3>
-            <p>Componentes para máquinas agrícolas, colheitadeiras e implementos.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="250" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><path d="M12 22V12m0-2V2M4.93 10.93l1.41 1.41M17.66 10.93l-1.41 1.41M2 18h2M20 18h2M19.07 18.93l-1.41-1.41M4.93 18.93l1.41-1.41"/></svg>
+              </div>
+              <h3>Agronegócio</h3>
+              <p>Máquinas agrícolas e implementos</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Agronegócio</h4>
+              <ul>
+                <li>Peças para colheitadeiras</li>
+                <li>Componentes de tratores e implementos</li>
+                <li>Eixos e pinhões para transmissão</li>
+                <li>Recuperação de peças desgastadas</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🛢️</div>
-            <h3>Petróleo & Gás</h3>
-            <p>Peças com certificação e precisão para ambientes de alta pressão.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="300" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <h3>Petróleo & Gás</h3>
+              <p>Alta pressão e ambientes críticos</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Petróleo & Gás</h4>
+              <ul>
+                <li>Peças para válvulas de alta pressão</li>
+                <li>Componentes em inox e ligas especiais</li>
+                <li>Vedações e flanges sob norma</li>
+                <li>Rastreabilidade de material garantida</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🏥</div>
-            <h3>Equipamentos Médicos</h3>
-            <p>Componentes com acabamento especial e rastreabilidade de material.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="350" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3>Equipamentos Médicos</h3>
+              <p>Acabamento especial e rastreabilidade</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Equipamentos Médicos</h4>
+              <ul>
+                <li>Componentes em inox 316L</li>
+                <li>Acabamento Ra controlado</li>
+                <li>Rastreabilidade de lote</li>
+                <li>Conformidade com normas sanitárias</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">✈️</div>
-            <h3>Aeronáutico</h3>
-            <p>Peças com tolerâncias rigorosas para componentes aeroespaciais.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="400" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-4 12a2 2 0 1 0 4 0 2 2 0 0 0-4 0m6-4v-3a4 4 0 0 0-4-4h-1"/></svg>
+              </div>
+              <h3>Aeronáutico</h3>
+              <p>Tolerâncias rigorosas e certificação</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Aeronáutico</h4>
+              <ul>
+                <li>Tolerâncias abaixo de 0,01mm</li>
+                <li>Materiais certificados e rastreados</li>
+                <li>Peças em titânio e alumínio aeronáutico</li>
+                <li>Documentação técnica completa</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
-          <div class="segmento-card" data-anim="zoom-in">
-            <div class="seg-icon">🏭</div>
-            <h3>Indústria Geral</h3>
-            <p>Atendemos qualquer demanda industrial com agilidade e qualidade.</p>
+
+          <div class="seg-exp-card" data-anim="fade-up" data-delay="450" onclick="toggleSeg(this)">
+            <div class="seg-exp-front">
+              <div class="seg-exp-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              </div>
+              <h3>Indústria Geral</h3>
+              <p>Qualquer demanda, mesma qualidade</p>
+              <span class="seg-exp-btn">Ver detalhes +</span>
+            </div>
+            <div class="seg-exp-back">
+              <h4>Indústria Geral</h4>
+              <ul>
+                <li>Peças unitárias e seriadas</li>
+                <li>Atendimento ágil e direto</li>
+                <li>Orçamento em até 24 horas</li>
+                <li>Todos os materiais e processos</li>
+              </ul>
+              <span class="seg-exp-close">Fechar ×</span>
+            </div>
           </div>
+
+        </div>
+      </div>
+
+      <!-- BANNER FOTO -->
+      <div class="seg-banner">
+        <div class="seg-banner-inner" data-anim="fade-up">
+          <div class="section-label" style="color:#7dd3fc">Nossa capacidade</div>
+          <h2>Estrutura para atender<br>qualquer demanda.</h2>
+          <p>Maquinário CNC moderno, equipe técnica especializada e processos de controle de qualidade para todos os segmentos.</p>
+          <a class="btn-primary" onclick="toggleFormPanel()">Solicitar Orçamento</a>
         </div>
       </div>
 
       <section class="cta-section">
         <h2>Seu segmento precisa de precisão?</h2>
         <p>Fale com nossa equipe e encontre a solução certa para sua operação.</p>
-        <a class="btn-primary" onclick="navigate('contato')">Solicitar Orçamento</a>
+        <a class="btn-primary" onclick="toggleFormPanel()">Solicitar Orçamento</a>
       </section>
 
     </div>
@@ -3360,6 +3662,15 @@
       buildDots();
       resetAuto();
     })();
+
+    // ── Segmentos expandíveis ────────────────────────────────────
+    function toggleSeg(card) {
+      const isOpen = card.classList.contains('open');
+      // fecha todos
+      document.querySelectorAll('.seg-exp-card').forEach(c => c.classList.remove('open'));
+      // abre o clicado se estava fechado
+      if (!isOpen) card.classList.add('open');
+    }
 
     // ── Accordion MVV ───────────────────────────────────────────
     function toggleAcc(item) {
