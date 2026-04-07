@@ -1228,17 +1228,28 @@
     }
 
     .sobre-img-placeholder {
-      background: linear-gradient(135deg, rgba(4,126,196,0.3), rgba(3,95,148,0.5));
-      border: 2px dashed rgba(255,255,255,0.2);
       border-radius: 20px;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+      height: 460px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .sobre-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .sobre-img-placeholder:hover img { transform: scale(1.05); }
+
+    .sobre-img-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(4,126,196,0.3) 0%, transparent 60%);
+      border-radius: 20px;
     }
 
     /* CONTADORES */
@@ -2094,7 +2105,9 @@
           <p>Conheça a história, os valores e a estrutura por trás da Usifast.</p>
         </div>
         <div class="sobre-hero-img" data-anim="fade-left" data-delay="200">
-          <div class="sobre-img-placeholder">[ FOTO DA EMPRESA ]</div>
+          <div class="sobre-img-placeholder">
+        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&q=85" alt="Usinagem CNC de precisão — Usifast">
+      </div>
         </div>
       </div>
 
