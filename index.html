@@ -986,6 +986,201 @@
 
     form button:hover { background: var(--azul-dark); }
 
+    /* ===== PÁGINA PROJETOS ===== */
+    .projetos-content { padding: 80px 5%; }
+
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .projeto-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+      background: var(--branco);
+    }
+
+    .projeto-card:hover {
+      box-shadow: 0 8px 30px rgba(4,126,196,0.15);
+      transform: translateY(-4px);
+    }
+
+    .projeto-img {
+      height: 220px;
+      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projeto-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .projeto-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--azul);
+      color: var(--branco);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .projeto-info { padding: 1.5rem; }
+    .projeto-info h3 { font-size: 1.05rem; font-weight: 700; color: var(--cinza-escuro); margin-bottom: 0.5rem; }
+    .projeto-info p  { font-size: 0.85rem; color: var(--texto-leve); line-height: 1.6; }
+
+    .projeto-meta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+    }
+
+    .projeto-meta span {
+      font-size: 0.78rem;
+      color: var(--texto-leve);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ===== FORMULÁRIO FLUTUANTE LATERAL ===== */
+    .form-float-btn {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 998;
+      background: var(--azul);
+      color: var(--branco);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: translateY(-50%) rotate(180deg);
+      padding: 1.2rem 0.7rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 8px 0 0 8px;
+      box-shadow: -3px 0 15px rgba(4,126,196,0.3);
+      transition: background 0.2s;
+      user-select: none;
+    }
+
+    .form-float-btn:hover { background: var(--azul-dark); }
+
+    .form-float-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .form-float-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .form-float-panel {
+      position: fixed;
+      right: -420px;
+      top: 0;
+      bottom: 0;
+      width: 420px;
+      max-width: 95vw;
+      background: var(--branco);
+      z-index: 1002;
+      box-shadow: -4px 0 30px rgba(0,0,0,0.15);
+      transition: right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-float-panel.open { right: 0; }
+
+    .form-panel-header {
+      background: var(--azul);
+      padding: 1.5rem 1.5rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .form-panel-header h3 {
+      color: var(--branco);
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .form-panel-header p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+
+    .form-panel-close {
+      color: var(--branco);
+      background: rgba(255,255,255,0.2);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .form-panel-close:hover { background: rgba(255,255,255,0.35); }
+
+    .form-panel-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .form-panel-body form { gap: 0.8rem; }
+
+    .form-panel-body form input,
+    .form-panel-body form select,
+    .form-panel-body form textarea {
+      padding: 0.75rem 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .form-panel-body form textarea { min-height: 100px; }
+
+    @media (max-width: 768px) {
+      .projetos-grid { grid-template-columns: 1fr; }
+      .form-float-panel { width: 100%; max-width: 100%; }
+    }
+
     /* ===== WHATSAPP FLUTUANTE ===== */
     .whatsapp-float {
       position: fixed;
@@ -1151,6 +1346,7 @@
       <li><a onclick="navigate('sobre')"   data-page="sobre">Sobre</a></li>
       <li><a onclick="navigate('servicos')" data-page="servicos">Serviços</a></li>
       <li><a onclick="navigate('segmentos')" data-page="segmentos">Segmentos</a></li>
+      <li><a onclick="navigate('projetos')" data-page="projetos">Projetos</a></li>
       <li><a onclick="navigate('contato')" data-page="contato" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1669,6 +1865,162 @@
     </div>
   </div>
 
+  <!-- ===== PAGE: PROJETOS ===== -->
+  <div class="page" id="page-projetos">
+    <div class="page-content">
+
+      <div class="page-hero">
+        <div class="section-label">Nosso portfólio</div>
+        <h1>Projetos realizados.</h1>
+        <p>Conheça alguns dos trabalhos entregues com precisão, qualidade e no prazo.</p>
+      </div>
+
+      <div class="projetos-content">
+        <div class="projetos-grid">
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Usinagem CNC</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Conjunto de Eixos para Linha Automotiva</h3>
+              <p>Fabricação de lote de 500 eixos em aço 1045 com tolerância de ±0,01mm para linha de montagem automotiva.</p>
+              <div class="projeto-meta">
+                <span>⚙️ Usinagem CNC</span>
+                <span>🏭 Automotivo</span>
+                <span>📦 500 pcs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Manutenção</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Recuperação de Rotor Industrial</h3>
+              <p>Recuperação dimensional de rotor de bomba centrífuga com recomposição de material e retífica final.</p>
+              <div class="projeto-meta">
+                <span>🛠️ Manutenção</span>
+                <span>⚡ Energia</span>
+                <span>⏱️ 48h</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Fabricação</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Dispositivos de Fixação Especiais</h3>
+              <p>Desenvolvimento e fabricação de dispositivos de fixação sob medida para célula robotizada de soldagem.</p>
+              <div class="projeto-meta">
+                <span>📐 Fabricação</span>
+                <span>🔧 Dispositivos</span>
+                <span>🎯 Sob medida</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Retífica</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Buchas de Precisão em Inox</h3>
+              <p>Série de buchas em aço inox 316L com acabamento Ra 0,4 para equipamentos da indústria farmacêutica.</p>
+              <div class="projeto-meta">
+                <span>📐 Retífica</span>
+                <span>🏥 Farmacêutico</span>
+                <span>🔩 Inox 316L</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Caldeiraria</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Estrutura Metálica para Silo</h3>
+              <p>Fabricação de estrutura metálica completa para silo de armazenamento de grãos com capacidade de 200 toneladas.</p>
+              <div class="projeto-meta">
+                <span>🔧 Caldeiraria</span>
+                <span>🌾 Agronegócio</span>
+                <span>🏗️ Estrutural</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="projeto-card">
+            <div class="projeto-img">
+              <div class="projeto-tag">Usinagem CNC</div>
+              [ FOTO DO PROJETO ]
+            </div>
+            <div class="projeto-info">
+              <h3>Carcaças para Redutores</h3>
+              <p>Usinagem de carcaças em alumínio fundido para redutores de velocidade industriais em produção seriada.</p>
+              <div class="projeto-meta">
+                <span>⚙️ CNC 5 eixos</span>
+                <span>🏭 Ind. Geral</span>
+                <span>📦 Série</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <section class="cta-section">
+        <h2>Tem um projeto semelhante?</h2>
+        <p>Nos conta o que precisa e montamos a melhor solução para você.</p>
+        <a class="btn-primary" onclick="toggleFormPanel()">Solicitar Orçamento</a>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- FORMULÁRIO FLUTUANTE LATERAL -->
+  <div class="form-float-btn" onclick="toggleFormPanel()">Solicitar Orçamento</div>
+
+  <div class="form-float-overlay" id="formOverlay" onclick="toggleFormPanel()"></div>
+
+  <div class="form-float-panel" id="formPanel">
+    <div class="form-panel-header">
+      <div>
+        <h3>Solicitar Orçamento</h3>
+        <p>Retornamos em até 24 horas</p>
+      </div>
+      <button class="form-panel-close" onclick="toggleFormPanel()">✕</button>
+    </div>
+    <div class="form-panel-body">
+      <form onsubmit="submitFormPanel(event)">
+        <input type="text"  placeholder="Seu nome" required>
+        <input type="text"  placeholder="Empresa">
+        <input type="tel"   placeholder="WhatsApp">
+        <input type="email" placeholder="E-mail">
+        <select>
+          <option value="">Tipo de serviço</option>
+          <option>Usinagem CNC</option>
+          <option>Fabricação de Peças</option>
+          <option>Manutenção Industrial</option>
+          <option>Retífica</option>
+          <option>Solda e Caldeiraria</option>
+          <option>Fornecimento de Materiais</option>
+          <option>Outro</option>
+        </select>
+        <textarea placeholder="Descreva sua necessidade: material, dimensões, quantidade, prazo..."></textarea>
+        <button type="submit">Enviar Solicitação →</button>
+      </form>
+    </div>
+  </div>
+
   <!-- WHATSAPP FLUTUANTE -->
   <a href="https://wa.me/55XXXXXXXXXXX" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1711,6 +2063,7 @@
         <ul>
           <li><a onclick="navigate('sobre')">Quem somos</a></li>
           <li><a onclick="navigate('sobre')">Nossa história</a></li>
+          <li><a onclick="navigate('projetos')">Projetos</a></li>
           <li><a onclick="navigate('segmentos')">Segmentos</a></li>
           <li><a onclick="navigate('contato')">Solicitar Orçamento</a></li>
         </ul>
@@ -1856,7 +2209,29 @@
       resetAuto();
     })();
 
-    // ── Formulário ──────────────────────────────────────────────
+    // ── Formulário Flutuante ─────────────────────────────────────
+    function toggleFormPanel() {
+      const panel   = document.getElementById('formPanel');
+      const overlay = document.getElementById('formOverlay');
+      panel.classList.toggle('open');
+      overlay.classList.toggle('open');
+      document.body.style.overflow = panel.classList.contains('open') ? 'hidden' : '';
+    }
+
+    function submitFormPanel(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Solicitação enviada!';
+      btn.style.background = '#16a34a';
+      setTimeout(() => {
+        btn.textContent = 'Enviar Solicitação →';
+        btn.style.background = '';
+        e.target.reset();
+        toggleFormPanel();
+      }, 2500);
+    }
+
+    // ── Formulário Página Contato ────────────────────────────────
     function submitForm(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
