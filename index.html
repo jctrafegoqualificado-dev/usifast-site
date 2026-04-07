@@ -1202,6 +1202,262 @@
       gap: 0.3rem;
     }
 
+    /* ===== PÁGINA SOBRE — NOVA ===== */
+    .sobre-hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--cinza-escuro) 0%, #0a1628 60%, #047ec4 100%);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 5% 80px;
+      gap: 4rem;
+    }
+
+    .sobre-hero-content h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--branco);
+      line-height: 1.15;
+      margin: 1rem 0;
+    }
+
+    .sobre-hero-content p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .sobre-img-placeholder {
+      background: linear-gradient(135deg, rgba(4,126,196,0.3), rgba(3,95,148,0.5));
+      border: 2px dashed rgba(255,255,255,0.2);
+      border-radius: 20px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* CONTADORES */
+    .sobre-counters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--azul);
+    }
+
+    .sobre-counter {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      transition: background 0.3s;
+    }
+
+    .sobre-counter:last-child { border-right: none; }
+    .sobre-counter:hover { background: var(--azul-dark); }
+
+    .counter-num {
+      display: block;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--branco);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .counter-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    /* HISTÓRIA + TIMELINE */
+    .sobre-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      padding: 80px 5%;
+      align-items: start;
+    }
+
+    /* COMPETÊNCIAS */
+    .competencias { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .comp-item {}
+
+    .comp-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--texto);
+    }
+
+    .comp-pct { color: var(--azul); font-weight: 700; }
+
+    .comp-bar {
+      background: #e2e8f0;
+      border-radius: 6px;
+      height: 8px;
+      overflow: hidden;
+    }
+
+    .comp-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--azul), var(--azul-dark));
+      border-radius: 6px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .comp-fill.animated { width: var(--w); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--azul), rgba(4,126,196,0.1));
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 2rem;
+      padding-left: 1.5rem;
+    }
+
+    .tl-item:last-child { padding-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -1.6rem;
+      top: 4px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--branco);
+      border: 3px solid var(--azul);
+      transition: all 0.3s;
+    }
+
+    .tl-dot.active {
+      background: var(--azul);
+      box-shadow: 0 0 0 4px rgba(4,126,196,0.2);
+    }
+
+    .tl-item:hover .tl-dot { background: var(--azul); transform: scale(1.3); }
+
+    .tl-year {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--azul);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+
+    .tl-text {
+      font-size: 0.9rem;
+      color: var(--texto-leve);
+      line-height: 1.6;
+    }
+
+    .tl-text strong { color: var(--cinza-escuro); }
+
+    /* MVV ACCORDION */
+    .mvv-section {
+      padding: 80px 5%;
+      background: var(--cinza);
+    }
+
+    .mvv-accordion {
+      max-width: 700px;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .acc-item {
+      background: var(--branco);
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    .acc-item:hover { box-shadow: 0 4px 16px rgba(4,126,196,0.1); }
+    .acc-item.active { border-color: var(--azul); }
+
+    .acc-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      user-select: none;
+    }
+
+    .acc-icon { font-size: 1.4rem; }
+
+    .acc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--cinza-escuro);
+      flex: 1;
+    }
+
+    .acc-arrow {
+      font-size: 1rem;
+      color: var(--azul);
+      transition: transform 0.3s;
+    }
+
+    .acc-item.active .acc-arrow { transform: rotate(180deg); }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+      padding: 0 1.5rem;
+    }
+
+    .acc-item.active .acc-body {
+      max-height: 200px;
+      padding: 0 1.5rem 1.2rem;
+    }
+
+    .acc-body p { font-size: 0.92rem; color: var(--texto-leve); line-height: 1.7; }
+
+    .valores-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .valor-tag {
+      background: var(--azul-light);
+      color: var(--azul-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .sobre-hero { grid-template-columns: 1fr; min-height: auto; padding-top: 100px; }
+      .sobre-hero-img { display: none; }
+      .sobre-counters { grid-template-columns: repeat(2, 1fr); }
+      .sobre-counter { border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .sobre-body { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
     /* ===== PÁGINA CLIENTES & PARCEIROS ===== */
     .clientes-content { padding: 80px 5%; }
 
@@ -1830,46 +2086,148 @@
   <div class="page" id="page-sobre">
     <div class="page-content">
 
-      <div class="page-hero" data-anim="fade-in">
-        <div class="section-label">Quem somos</div>
-        <h1>Precisão que move a indústria.</h1>
-        <p>Conheça a história, os valores e a equipe por trás da Usifast.</p>
+      <!-- HERO SOBRE -->
+      <div class="sobre-hero">
+        <div class="sobre-hero-content" data-anim="fade-up">
+          <div class="section-label" style="color:#7dd3fc">Quem somos</div>
+          <h1>Precisão que move<br>a indústria.</h1>
+          <p>Conheça a história, os valores e a estrutura por trás da Usifast.</p>
+        </div>
+        <div class="sobre-hero-img" data-anim="fade-left" data-delay="200">
+          <div class="sobre-img-placeholder">[ FOTO DA EMPRESA ]</div>
+        </div>
       </div>
 
-      <div class="sobre-content">
-        <div class="sobre-grid">
-          <div class="sobre-img">[ FOTO DA EMPRESA / MÁQUINAS ]</div>
-          <div class="sobre-text">
-            <h2>A Usifast</h2>
-            <p>A Usifast nasceu da necessidade de oferecer usinagem industrial com qualidade, agilidade e comprometimento real com o prazo. Desde o início, nossa missão é simples: entregar exatamente o que o cliente precisa, no tempo que ele precisa.</p>
-            <p>Ao longo dos anos, construímos uma estrutura completa de maquinário CNC moderno e uma equipe técnica altamente capacitada para atender os mais diversos segmentos da indústria brasileira.</p>
-            <p>Hoje somos referência regional em usinagem de precisão, atendendo clientes em todo o Brasil com o mesmo padrão de excelência que nos tornou conhecidos.</p>
+      <!-- CONTADORES -->
+      <div class="sobre-counters">
+        <div class="sobre-counter" data-anim="fade-up" data-delay="100">
+          <span class="counter-num" data-count="20" data-suffix="+">20+</span>
+          <span class="counter-label">Anos de experiência</span>
+        </div>
+        <div class="sobre-counter" data-anim="fade-up" data-delay="200">
+          <span class="counter-num" data-count="300" data-suffix="+">300+</span>
+          <span class="counter-label">Clientes atendidos</span>
+        </div>
+        <div class="sobre-counter" data-anim="fade-up" data-delay="300">
+          <span class="counter-num" data-count="15" data-suffix="">15</span>
+          <span class="counter-label">Estados atendidos</span>
+        </div>
+        <div class="sobre-counter" data-anim="fade-up" data-delay="400">
+          <span class="counter-num" data-count="5000" data-suffix="+">5000+</span>
+          <span class="counter-label">Projetos concluídos</span>
+        </div>
+      </div>
+
+      <!-- HISTÓRIA + COMPETÊNCIAS -->
+      <div class="sobre-body">
+
+        <div class="sobre-historia" data-anim="fade-right">
+          <div class="section-label">Nossa história</div>
+          <h2 class="section-title">De uma ideia à<br>referência regional.</h2>
+          <p style="color:var(--texto-leve);line-height:1.8;margin-bottom:1rem">A Usifast nasceu da necessidade de oferecer usinagem industrial com qualidade, agilidade e comprometimento real com o prazo. Desde o início, nossa missão é simples: entregar exatamente o que o cliente precisa, no tempo que ele precisa.</p>
+          <p style="color:var(--texto-leve);line-height:1.8;margin-bottom:2rem">Ao longo dos anos, construímos uma estrutura completa com maquinário CNC moderno e equipe técnica altamente capacitada para atender os mais diversos segmentos da indústria.</p>
+
+          <div class="competencias">
+            <div class="comp-item" data-anim="fade-up" data-delay="100">
+              <div class="comp-header"><span>Usinagem CNC</span><span class="comp-pct">95%</span></div>
+              <div class="comp-bar"><div class="comp-fill" data-pct="95"></div></div>
+            </div>
+            <div class="comp-item" data-anim="fade-up" data-delay="200">
+              <div class="comp-header"><span>Fabricação de Peças</span><span class="comp-pct">90%</span></div>
+              <div class="comp-bar"><div class="comp-fill" data-pct="90"></div></div>
+            </div>
+            <div class="comp-item" data-anim="fade-up" data-delay="300">
+              <div class="comp-header"><span>Manutenção Industrial</span><span class="comp-pct">88%</span></div>
+              <div class="comp-bar"><div class="comp-fill" data-pct="88"></div></div>
+            </div>
+            <div class="comp-item" data-anim="fade-up" data-delay="400">
+              <div class="comp-header"><span>Solda e Caldeiraria</span><span class="comp-pct">82%</span></div>
+              <div class="comp-bar"><div class="comp-fill" data-pct="82"></div></div>
+            </div>
           </div>
         </div>
+
+        <!-- TIMELINE -->
+        <div class="sobre-timeline" data-anim="fade-left">
+          <div class="section-label">Linha do tempo</div>
+          <h2 class="section-title" style="margin-bottom:2rem">Nossa trajetória.</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">[ANO]</div>
+              <div class="tl-text"><strong>Fundação</strong><br>A Usifast abre suas portas com um torno convencional e muita determinação.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">[ANO]</div>
+              <div class="tl-text"><strong>Primeiro CNC</strong><br>Investimento no primeiro torno CNC amplia a capacidade e abre novos mercados.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">[ANO]</div>
+              <div class="tl-text"><strong>Expansão</strong><br>Nova sede com galpão próprio, fresadoras e centro de usinagem.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-year">[ANO]</div>
+              <div class="tl-text"><strong>100+ clientes</strong><br>Marco de 100 clientes ativos em diferentes segmentos industriais.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot active"></div>
+              <div class="tl-year">Hoje</div>
+              <div class="tl-text"><strong>Referência regional</strong><br>300+ clientes, 15 estados atendidos e crescimento contínuo.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="numeros-section">
-        <div class="numero-item"><h3>XX+</h3><p>Anos de experiência</p></div>
-        <div class="numero-item"><h3>XXX+</h3><p>Clientes atendidos</p></div>
-        <div class="numero-item"><h3>XX</h3><p>Estados atendidos</p></div>
-        <div class="numero-item"><h3>XXX+</h3><p>Projetos concluídos</p></div>
-      </div>
+      <!-- MVV ACCORDION -->
+      <div class="mvv-section">
+        <div class="section-label" data-anim="fade-up">Nosso propósito</div>
+        <h2 class="section-title" data-anim="fade-up" data-delay="100">Missão, Visão<br>e Valores.</h2>
+        <div class="mvv-accordion" data-anim="fade-up" data-delay="200">
 
-      <div class="mvv">
-        <div class="mvv-card">
-          <div class="mvv-icon">🎯</div>
-          <h4>Missão</h4>
-          <p>Fornecer soluções em usinagem industrial com precisão, agilidade e qualidade, contribuindo para a eficiência e competitividade dos nossos clientes.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon">🔭</div>
-          <h4>Visão</h4>
-          <p>Ser referência nacional em usinagem de precisão, reconhecida pela excelência técnica e pela confiança que construímos com cada cliente.</p>
-        </div>
-        <div class="mvv-card">
-          <div class="mvv-icon">⭐</div>
-          <h4>Valores</h4>
-          <p>Precisão · Comprometimento · Agilidade · Ética · Inovação · Respeito ao cliente</p>
+          <div class="acc-item active" onclick="toggleAcc(this)">
+            <div class="acc-header">
+              <span class="acc-icon">🎯</span>
+              <span class="acc-title">Missão</span>
+              <span class="acc-arrow">▾</span>
+            </div>
+            <div class="acc-body">
+              <p>Fornecer soluções em usinagem industrial com precisão, agilidade e qualidade, contribuindo para a eficiência e competitividade dos nossos clientes.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-header">
+              <span class="acc-icon">🔭</span>
+              <span class="acc-title">Visão</span>
+              <span class="acc-arrow">▾</span>
+            </div>
+            <div class="acc-body">
+              <p>Ser referência nacional em usinagem de precisão, reconhecida pela excelência técnica e pela confiança que construímos com cada cliente ao longo dos anos.</p>
+            </div>
+          </div>
+
+          <div class="acc-item" onclick="toggleAcc(this)">
+            <div class="acc-header">
+              <span class="acc-icon">⭐</span>
+              <span class="acc-title">Valores</span>
+              <span class="acc-arrow">▾</span>
+            </div>
+            <div class="acc-body">
+              <div class="valores-grid">
+                <span class="valor-tag">⚙️ Precisão</span>
+                <span class="valor-tag">🤝 Comprometimento</span>
+                <span class="valor-tag">⚡ Agilidade</span>
+                <span class="valor-tag">🧭 Ética</span>
+                <span class="valor-tag">💡 Inovação</span>
+                <span class="valor-tag">🙌 Respeito</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -2463,8 +2821,7 @@
 
       // Reinicia animações da nova página
       setTimeout(() => {
-        if (target) animateVisible(target);
-        startCounters(target);
+        if (target) { animateVisible(target); startCounters(target); animateBars(target); }
       }, 80);
     }
 
@@ -2517,7 +2874,7 @@
 
     // ── Contadores animados ──────────────────────────────────────
     function startCounters(container) {
-      const nums = (container || document).querySelectorAll('[data-count]:not([data-counted])');
+      const nums = (container || document).querySelectorAll('[data-count]:not([data-counted]), .counter-num[data-count]:not([data-counted])');
       nums.forEach(el => {
         el.setAttribute('data-counted', '1');
         const target = parseInt(el.getAttribute('data-count'));
@@ -2600,6 +2957,34 @@
       buildDots();
       resetAuto();
     })();
+
+    // ── Accordion MVV ───────────────────────────────────────────
+    function toggleAcc(item) {
+      const parent = item.parentElement;
+      parent.querySelectorAll('.acc-item').forEach(i => {
+        if (i !== item) i.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    }
+
+    // ── Barras de competência animadas ───────────────────────────
+    function animateBars(container) {
+      const fills = (container || document).querySelectorAll('.comp-fill:not(.animated)');
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          const pct = fill.getAttribute('data-pct');
+          fill.style.setProperty('--w', pct + '%');
+          fill.classList.add('animated');
+          fill.style.width = pct + '%';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      const active = document.querySelector('.page.active');
+      animateBars(active);
+    });
 
     // ── Formulário Flutuante ─────────────────────────────────────
     function toggleFormPanel() {
