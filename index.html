@@ -1347,80 +1347,188 @@
     }
 
     /* ===== PÁGINA PROJETOS ===== */
-    .projetos-content { padding: 80px 5%; }
-
-    .projetos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .projeto-card {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #e2e8f0;
-      transition: all 0.3s;
-      background: var(--branco);
-    }
-
-    .projeto-card:hover {
-      box-shadow: 0 8px 30px rgba(4,126,196,0.15);
-      transform: translateY(-4px);
-    }
-
-    .projeto-img {
-      height: 220px;
-      background: linear-gradient(135deg, var(--azul) 0%, var(--azul-dark) 100%);
+    /* ===== PÁGINA PROJETOS — NOVA ===== */
+    .proj-hero {
+      min-height: 62vh;
+      background: linear-gradient(135deg, var(--cinza-escuro) 0%, #0a1628 60%, var(--azul-dark) 100%);
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+      padding: 120px 5% 80px;
       position: relative;
       overflow: hidden;
     }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1400&q=80') center/cover no-repeat;
+      opacity: 0.1;
+    }
+    .proj-hero-content { position: relative; z-index: 1; max-width: 680px; }
+    .proj-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      color: var(--branco);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .proj-hero p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+    .proj-hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .proj-hero-stat .num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--branco);
+      line-height: 1;
+    }
+    .proj-hero-stat .num span { color: var(--azul); }
+    .proj-hero-stat .lbl {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
+    }
 
-    .projeto-img img {
+    .proj-filters-wrap {
+      background: var(--branco);
+      padding: 1.25rem 5%;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .proj-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .pf-btn {
+      padding: 0.45rem 1.15rem;
+      border-radius: 30px;
+      border: 2px solid #e2e8f0;
+      background: transparent;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--texto-leve);
+      cursor: pointer;
+      transition: all 0.22s;
+      font-family: 'Inter', sans-serif;
+    }
+    .pf-btn:hover, .pf-btn.active {
+      background: var(--azul);
+      border-color: var(--azul);
+      color: var(--branco);
+    }
+
+    .proj-grid-wrap { padding: 60px 5%; background: #f8fafc; }
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .proj-card {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      height: 320px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .proj-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
+    .proj-card.hidden { display: none; }
+    .proj-card-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.6s;
+      display: block;
     }
-
-    .projeto-tag {
+    .proj-card:hover .proj-card-img { transform: scale(1.06); }
+    .proj-card-base {
       position: absolute;
-      top: 1rem;
-      left: 1rem;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
+      transition: opacity 0.3s;
+    }
+    .proj-card:hover .proj-card-base { opacity: 0; }
+    .cat-badge {
+      display: inline-block;
       background: var(--azul);
-      color: var(--branco);
-      font-size: 0.75rem;
+      color: #fff;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 0.3rem 0.8rem;
+      padding: 0.22rem 0.7rem;
       border-radius: 20px;
+      margin-bottom: 0.4rem;
       letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
-
-    .projeto-info { padding: 1.5rem; }
-    .projeto-info h3 { font-size: 1.05rem; font-weight: 700; color: var(--cinza-escuro); margin-bottom: 0.5rem; }
-    .projeto-info p  { font-size: 0.85rem; color: var(--texto-leve); line-height: 1.6; }
-
-    .projeto-meta {
+    .proj-card-base h3 { color: var(--branco); font-size: 0.98rem; font-weight: 700; line-height: 1.35; }
+    .proj-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(4,126,196,0.93) 0%, rgba(3,95,148,0.97) 100%);
+      padding: 2rem 1.5rem;
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #e2e8f0;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.35s, transform 0.35s;
     }
-
-    .projeto-meta span {
-      font-size: 0.78rem;
-      color: var(--texto-leve);
+    .proj-card:hover .proj-card-overlay { opacity: 1; transform: translateY(0); }
+    .proj-card-overlay .cat-badge {
+      background: rgba(255,255,255,0.2);
+      width: fit-content;
+      margin-bottom: 0.75rem;
+    }
+    .proj-card-overlay h3 { color: var(--branco); font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; line-height: 1.35; }
+    .proj-card-overlay p { color: rgba(255,255,255,0.85); font-size: 0.81rem; line-height: 1.65; margin-bottom: 1rem; }
+    .proj-overlay-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .proj-overlay-meta span {
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+    }
+    .proj-overlay-meta svg { flex-shrink: 0; }
+
+    .proj-numbers {
+      background: var(--cinza-escuro);
+      padding: 70px 5%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .proj-num-item .pnum {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--azul);
+      line-height: 1;
+    }
+    .proj-num-item .plbl {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 960px) {
+      .proj-grid { grid-template-columns: repeat(2, 1fr); }
+      .proj-numbers { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ===== PÁGINA SOBRE — NOVA ===== */
@@ -2113,7 +2221,9 @@
     .form-panel-body form textarea { min-height: 100px; }
 
     @media (max-width: 768px) {
-      .projetos-grid { grid-template-columns: 1fr; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .proj-numbers { grid-template-columns: repeat(2, 1fr); }
+      .proj-hero-stats { gap: 1.5rem; }
       .form-float-panel { width: 100%; max-width: 100%; }
     }
 
@@ -3179,107 +3289,155 @@
   <div class="page" id="page-projetos">
     <div class="page-content">
 
-      <div class="page-hero" data-anim="fade-in">
-        <div class="section-label">Nosso portfólio</div>
-        <h1>Projetos realizados.</h1>
-        <p>Conheça alguns dos trabalhos entregues com precisão, qualidade e no prazo.</p>
+      <!-- HERO -->
+      <div class="proj-hero" data-anim="fade-in">
+        <div class="proj-hero-content">
+          <div class="section-label">Portfólio</div>
+          <h1>Projetos entregues<br>com precisão.</h1>
+          <p>Cada trabalho reflete nosso compromisso com tolerâncias rigorosas, materiais de qualidade e prazos cumpridos.</p>
+          <div class="proj-hero-stats">
+            <div class="proj-hero-stat">
+              <div class="num"><span data-count="200" data-suffix="+">0</span></div>
+              <div class="lbl">Projetos Entregues</div>
+            </div>
+            <div class="proj-hero-stat">
+              <div class="num"><span data-count="80" data-suffix="+">0</span></div>
+              <div class="lbl">Clientes Atendidos</div>
+            </div>
+            <div class="proj-hero-stat">
+              <div class="num"><span data-count="15" data-suffix=" anos">0</span></div>
+              <div class="lbl">de Experiência</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="projetos-content">
-        <div class="projetos-grid">
+      <!-- FILTROS -->
+      <div class="proj-filters-wrap">
+        <div class="proj-filters">
+          <button class="pf-btn active" onclick="filterProjects(this,'todos')">Todos</button>
+          <button class="pf-btn" onclick="filterProjects(this,'cnc')">Usinagem CNC</button>
+          <button class="pf-btn" onclick="filterProjects(this,'manutencao')">Manutenção</button>
+          <button class="pf-btn" onclick="filterProjects(this,'fabricacao')">Fabricação</button>
+          <button class="pf-btn" onclick="filterProjects(this,'retiifica')">Retífica</button>
+          <button class="pf-btn" onclick="filterProjects(this,'caldeiraria')">Caldeiraria</button>
+        </div>
+      </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Usinagem CNC</div>
-              [ FOTO DO PROJETO ]
+      <!-- GRID DE PROJETOS -->
+      <div class="proj-grid-wrap">
+        <div class="proj-grid" id="proj-grid">
+
+          <!-- Card 1 — Usinagem CNC -->
+          <div class="proj-card" data-cat="cnc" data-anim="fade-up" data-delay="0">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=700&q=80" alt="Usinagem CNC — Eixos Automotivos">
+            <div class="proj-card-base">
+              <div class="cat-badge">Usinagem CNC</div>
+              <h3>Conjunto de Eixos para Linha Automotiva</h3>
             </div>
-            <div class="projeto-info">
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Usinagem CNC</div>
               <h3>Conjunto de Eixos para Linha Automotiva</h3>
               <p>Fabricação de lote de 500 eixos em aço 1045 com tolerância de ±0,01mm para linha de montagem automotiva.</p>
-              <div class="projeto-meta">
-                <span>⚙️ Usinagem CNC</span>
-                <span>🏭 Automotivo</span>
-                <span>📦 500 pcs</span>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Aço 1045</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Automotivo</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> 500 pcs</span>
               </div>
             </div>
           </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Manutenção</div>
-              [ FOTO DO PROJETO ]
+          <!-- Card 2 — Manutenção -->
+          <div class="proj-card" data-cat="manutencao" data-anim="fade-up" data-delay="80">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="Manutenção Industrial — Rotor">
+            <div class="proj-card-base">
+              <div class="cat-badge">Manutenção</div>
+              <h3>Recuperação de Rotor Industrial</h3>
             </div>
-            <div class="projeto-info">
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Manutenção</div>
               <h3>Recuperação de Rotor Industrial</h3>
               <p>Recuperação dimensional de rotor de bomba centrífuga com recomposição de material e retífica final.</p>
-              <div class="projeto-meta">
-                <span>🛠️ Manutenção</span>
-                <span>⚡ Energia</span>
-                <span>⏱️ 48h</span>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Bomba Centrífuga</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Energia</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 48h</span>
               </div>
             </div>
           </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Fabricação</div>
-              [ FOTO DO PROJETO ]
+          <!-- Card 3 — Fabricação -->
+          <div class="proj-card" data-cat="fabricacao" data-anim="fade-up" data-delay="160">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1581091870623-4f4b59e37f78?w=700&q=80" alt="Fabricação — Dispositivos de Fixação">
+            <div class="proj-card-base">
+              <div class="cat-badge">Fabricação</div>
+              <h3>Dispositivos de Fixação Especiais</h3>
             </div>
-            <div class="projeto-info">
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Fabricação</div>
               <h3>Dispositivos de Fixação Especiais</h3>
               <p>Desenvolvimento e fabricação de dispositivos de fixação sob medida para célula robotizada de soldagem.</p>
-              <div class="projeto-meta">
-                <span>📐 Fabricação</span>
-                <span>🔧 Dispositivos</span>
-                <span>🎯 Sob medida</span>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Sob Medida</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Dispositivos</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> Robotizada</span>
               </div>
             </div>
           </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Retífica</div>
-              [ FOTO DO PROJETO ]
+          <!-- Card 4 — Retífica -->
+          <div class="proj-card" data-cat="retiifica" data-anim="fade-up" data-delay="0">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1530982011887-3cc11cc85693?w=700&q=80" alt="Retífica — Buchas de Precisão">
+            <div class="proj-card-base">
+              <div class="cat-badge">Retífica</div>
+              <h3>Buchas de Precisão em Inox</h3>
             </div>
-            <div class="projeto-info">
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Retífica</div>
               <h3>Buchas de Precisão em Inox</h3>
               <p>Série de buchas em aço inox 316L com acabamento Ra 0,4 para equipamentos da indústria farmacêutica.</p>
-              <div class="projeto-meta">
-                <span>📐 Retífica</span>
-                <span>🏥 Farmacêutico</span>
-                <span>🔩 Inox 316L</span>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Inox 316L</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Farmacêutico</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg> Ra 0,4</span>
               </div>
             </div>
           </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Caldeiraria</div>
-              [ FOTO DO PROJETO ]
+          <!-- Card 5 — Caldeiraria -->
+          <div class="proj-card" data-cat="caldeiraria" data-anim="fade-up" data-delay="80">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&q=80" alt="Caldeiraria — Estrutura Metálica Silo">
+            <div class="proj-card-base">
+              <div class="cat-badge">Caldeiraria</div>
+              <h3>Estrutura Metálica para Silo</h3>
             </div>
-            <div class="projeto-info">
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Caldeiraria</div>
               <h3>Estrutura Metálica para Silo</h3>
               <p>Fabricação de estrutura metálica completa para silo de armazenamento de grãos com capacidade de 200 toneladas.</p>
-              <div class="projeto-meta">
-                <span>🔧 Caldeiraria</span>
-                <span>🌾 Agronegócio</span>
-                <span>🏗️ Estrutural</span>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Estrutural</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5 5 4 4 0 0 1-5-5 10 10 0 0 0 0-10z"/></svg> Agronegócio</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg> 200 t</span>
               </div>
             </div>
           </div>
 
-          <div class="projeto-card" data-anim="fade-up">
-            <div class="projeto-img">
-              <div class="projeto-tag">Usinagem CNC</div>
-              [ FOTO DO PROJETO ]
+          <!-- Card 6 — Usinagem CNC 5 eixos -->
+          <div class="proj-card" data-cat="cnc" data-anim="fade-up" data-delay="160">
+            <img class="proj-card-img" src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=700&q=80" alt="CNC 5 eixos — Carcaças de Redutores">
+            <div class="proj-card-base">
+              <div class="cat-badge">Usinagem CNC</div>
+              <h3>Carcaças para Redutores de Velocidade</h3>
             </div>
-            <div class="projeto-info">
-              <h3>Carcaças para Redutores</h3>
-              <p>Usinagem de carcaças em alumínio fundido para redutores de velocidade industriais em produção seriada.</p>
-              <div class="projeto-meta">
-                <span>⚙️ CNC 5 eixos</span>
-                <span>🏭 Ind. Geral</span>
-                <span>📦 Série</span>
+            <div class="proj-card-overlay">
+              <div class="cat-badge">Usinagem CNC</div>
+              <h3>Carcaças para Redutores de Velocidade</h3>
+              <p>Usinagem de carcaças em alumínio fundido para redutores industriais em produção seriada com CNC 5 eixos.</p>
+              <div class="proj-overlay-meta">
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 2.93 19.07M4.93 4.93A10 10 0 0 1 19.07 19.07"/></svg> CNC 5 Eixos</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Ind. Geral</span>
+                <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Produção Seriada</span>
               </div>
             </div>
           </div>
@@ -3287,6 +3445,27 @@
         </div>
       </div>
 
+      <!-- NÚMEROS DO PORTFÓLIO -->
+      <div class="proj-numbers" data-anim="fade-in">
+        <div class="proj-num-item">
+          <div class="pnum" data-count="200" data-suffix="+">0</div>
+          <div class="plbl">Projetos Realizados</div>
+        </div>
+        <div class="proj-num-item">
+          <div class="pnum" data-count="80" data-suffix="+">0</div>
+          <div class="plbl">Clientes Atendidos</div>
+        </div>
+        <div class="proj-num-item">
+          <div class="pnum" data-count="15" data-suffix=" anos">0</div>
+          <div class="plbl">de Experiência</div>
+        </div>
+        <div class="proj-num-item">
+          <div class="pnum" data-count="99" data-suffix="%">0</div>
+          <div class="plbl">Entregas no Prazo</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
       <section class="cta-section">
         <h2>Tem um projeto semelhante?</h2>
         <p>Nos conta o que precisa e montamos a melhor solução para você.</p>
@@ -3699,6 +3878,19 @@
       const active = document.querySelector('.page.active');
       animateBars(active);
     });
+
+    // ── Filtro de Projetos ───────────────────────────────────────
+    function filterProjects(btn, cat) {
+      document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#proj-grid .proj-card').forEach(card => {
+        if (cat === 'todos' || card.dataset.cat === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
 
     // ── Formulário Flutuante ─────────────────────────────────────
     function toggleFormPanel() {
