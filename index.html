@@ -986,6 +986,145 @@
 
     form button:hover { background: var(--azul-dark); }
 
+    /* ===== ANIMAÇÕES DINÂMICAS ===== */
+
+    /* Elementos animados no scroll */
+    [data-anim] {
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-anim="fade-up"]   { transform: translateY(40px); }
+    [data-anim="fade-left"] { transform: translateX(-40px); }
+    [data-anim="fade-right"]{ transform: translateX(40px); }
+    [data-anim="fade-in"]   { transform: scale(0.96); }
+    [data-anim="zoom-in"]   { transform: scale(0.85); }
+
+    [data-anim].visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Delay escalonado */
+    [data-delay="100"] { transition-delay: 0.1s; }
+    [data-delay="200"] { transition-delay: 0.2s; }
+    [data-delay="300"] { transition-delay: 0.3s; }
+    [data-delay="400"] { transition-delay: 0.4s; }
+    [data-delay="500"] { transition-delay: 0.5s; }
+    [data-delay="600"] { transition-delay: 0.6s; }
+
+    /* Linha decorativa animada */
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: var(--azul);
+      border-radius: 2px;
+      margin-top: 0.6rem;
+      transition: width 0.8s ease 0.3s;
+    }
+
+    .section-title.visible::after { width: 60px; }
+
+    /* Hover nos cards mais pronunciado */
+    .card, .servico-card, .projeto-card, .review-card, .depoimento-card, .segmento-card {
+      transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    /* Efeito shine nos botões */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -75%;
+      width: 50%; height: 200%;
+      background: rgba(255,255,255,0.15);
+      transform: skewX(-20deg);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::after { left: 125%; }
+
+    /* Underline animado nos links do nav */
+    .nav-links a:not(.nav-cta) {
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--azul);
+      border-radius: 2px;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    /* Typing cursor no hero */
+    .hero-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1em;
+      background: var(--azul);
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* Pulse no badge do hero */
+    .hero-badge {
+      animation: pulse-badge 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(4,126,196,0); }
+      50%       { box-shadow: 0 0 0 8px rgba(4,126,196,0.15); }
+    }
+
+    /* Efeito ripple nos botões de navegação do carrossel */
+    .carousel-btn { position: relative; overflow: hidden; }
+
+    /* Contador animado */
+    .count-num { display: inline-block; }
+
+    /* Barra de progresso nos diferenciais */
+    .dfcard { position: relative; overflow: hidden; }
+    .dfcard::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: rgba(255,255,255,0.3);
+      transition: width 1s ease;
+    }
+    .dfcard.visible::before { width: 100%; }
+    .dfcard.branco::before  { background: var(--azul); opacity: 0.3; }
+
+    /* Floating animation nas métricas do hero */
+    .hero-number {
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-number:nth-child(2) { animation-delay: 0.7s; }
+    .hero-number:nth-child(3) { animation-delay: 1.4s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+
     /* ===== PÁGINA PROJETOS ===== */
     .projetos-content { padding: 80px 5%; }
 
@@ -1468,10 +1607,10 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-content">
-        <div class="hero-badge">⚙️ Usinagem Industrial de Precisão</div>
-        <h1>Precisão, Qualidade<br>&amp; Tecnologia em<br><span>Usinagem Industrial</span></h1>
-        <p>Fabricando peças industriais com precisão micrométrica. Do protótipo à produção em série — entregamos exatamente o que sua operação precisa.</p>
-        <div class="hero-btns">
+        <div class="hero-badge" data-anim="fade-up">⚙️ Usinagem Industrial de Precisão</div>
+        <h1 data-anim="fade-up" data-delay="100">Precisão, Qualidade<br>&amp; Tecnologia em<br><span>Usinagem Industrial</span></h1>
+        <p data-anim="fade-up" data-delay="200">Fabricando peças industriais com precisão micrométrica. Do protótipo à produção em série — entregamos exatamente o que sua operação precisa.</p>
+        <div class="hero-btns" data-anim="fade-up" data-delay="300">
           <a class="btn-primary" onclick="navigate('contato')">Solicitar Orçamento</a>
           <a class="btn-outline" onclick="navigate('servicos')">Ver Serviços</a>
         </div>
@@ -1562,17 +1701,17 @@
         <a class="btn-outline-dark" onclick="navigate('servicos')">Ver todos os serviços →</a>
       </div>
       <div class="cards-3">
-        <div class="card">
+        <div class="card" data-anim="fade-up" data-delay="100">
           <div class="card-icon">⚙️</div>
           <h3>Usinagem CNC</h3>
           <p>Torneamento e fresamento CNC com alta precisão para peças complexas em diferentes materiais e especificações técnicas.</p>
         </div>
-        <div class="card">
+        <div class="card" data-anim="fade-up" data-delay="200">
           <div class="card-icon">🔩</div>
           <h3>Fabricação de Peças</h3>
           <p>Produção de peças unitárias ou em série, do protótipo ao lote final, com controle dimensional rigoroso em cada etapa.</p>
         </div>
-        <div class="card">
+        <div class="card" data-anim="fade-up" data-delay="300">
           <div class="card-icon">🛠️</div>
           <h3>Manutenção Industrial</h3>
           <p>Recuperação e manutenção de peças desgastadas, reduzindo paradas de linha e custo de reposição para sua indústria.</p>
@@ -1583,12 +1722,12 @@
     <!-- DIFERENCIAIS COM FOTO + CARDS FLUTUANTES -->
     <div class="diferenciais-foto">
       <div class="diferenciais-foto-cards">
-        <div class="dfcard azul">
+        <div class="dfcard azul" data-anim="fade-up" data-delay="100">
           <span class="df-icon">⚡</span>
           <h3>Melhor Prazo</h3>
           <p>Comprometimento com prazos é a nossa prioridade.</p>
         </div>
-        <div class="dfcard branco">
+        <div class="dfcard branco" data-anim="fade-up" data-delay="200">
           <span class="df-icon">✅</span>
           <h3>Qualidade</h3>
           <p>Cumprindo as especificações técnicas solicitadas pelo cliente.</p>
@@ -1691,7 +1830,7 @@
   <div class="page" id="page-sobre">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">Quem somos</div>
         <h1>Precisão que move a indústria.</h1>
         <p>Conheça a história, os valores e a equipe por trás da Usifast.</p>
@@ -1747,7 +1886,7 @@
   <div class="page" id="page-servicos">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">O que fazemos</div>
         <h1>Soluções completas em usinagem.</h1>
         <p>Do projeto à entrega — cada serviço com o mesmo padrão de precisão e compromisso com o prazo.</p>
@@ -1850,7 +1989,7 @@
   <div class="page" id="page-segmentos">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">Quem atendemos</div>
         <h1>Segmentos industriais que servimos.</h1>
         <p>Atendemos indústrias dos mais variados segmentos, sempre com o mesmo padrão de precisão e comprometimento.</p>
@@ -1858,42 +1997,42 @@
 
       <div class="segmentos-content">
         <div class="segmentos-grid-full">
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🏗️</div>
             <h3>Construção Civil</h3>
             <p>Peças e estruturas metálicas para obras e infraestrutura industrial.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🚗</div>
             <h3>Automotivo</h3>
             <p>Componentes de alta precisão para linha de montagem e reposição.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">⚡</div>
             <h3>Energia Elétrica</h3>
             <p>Peças para geradores, transformadores e subestações elétricas.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🌾</div>
             <h3>Agronegócio</h3>
             <p>Componentes para máquinas agrícolas, colheitadeiras e implementos.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🛢️</div>
             <h3>Petróleo & Gás</h3>
             <p>Peças com certificação e precisão para ambientes de alta pressão.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🏥</div>
             <h3>Equipamentos Médicos</h3>
             <p>Componentes com acabamento especial e rastreabilidade de material.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">✈️</div>
             <h3>Aeronáutico</h3>
             <p>Peças com tolerâncias rigorosas para componentes aeroespaciais.</p>
           </div>
-          <div class="segmento-card">
+          <div class="segmento-card" data-anim="zoom-in">
             <div class="seg-icon">🏭</div>
             <h3>Indústria Geral</h3>
             <p>Atendemos qualquer demanda industrial com agilidade e qualidade.</p>
@@ -1914,7 +2053,7 @@
   <div class="page" id="page-contato">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">Fale conosco</div>
         <h1>Solicite seu orçamento.</h1>
         <p>Envie suas especificações e nossa equipe retorna em até 24 horas com proposta técnica e comercial.</p>
@@ -1977,7 +2116,7 @@
   <div class="page" id="page-projetos">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">Nosso portfólio</div>
         <h1>Projetos realizados.</h1>
         <p>Conheça alguns dos trabalhos entregues com precisão, qualidade e no prazo.</p>
@@ -1986,7 +2125,7 @@
       <div class="projetos-content">
         <div class="projetos-grid">
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Usinagem CNC</div>
               [ FOTO DO PROJETO ]
@@ -2002,7 +2141,7 @@
             </div>
           </div>
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Manutenção</div>
               [ FOTO DO PROJETO ]
@@ -2018,7 +2157,7 @@
             </div>
           </div>
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Fabricação</div>
               [ FOTO DO PROJETO ]
@@ -2034,7 +2173,7 @@
             </div>
           </div>
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Retífica</div>
               [ FOTO DO PROJETO ]
@@ -2050,7 +2189,7 @@
             </div>
           </div>
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Caldeiraria</div>
               [ FOTO DO PROJETO ]
@@ -2066,7 +2205,7 @@
             </div>
           </div>
 
-          <div class="projeto-card">
+          <div class="projeto-card" data-anim="fade-up">
             <div class="projeto-img">
               <div class="projeto-tag">Usinagem CNC</div>
               [ FOTO DO PROJETO ]
@@ -2098,7 +2237,7 @@
   <div class="page" id="page-clientes">
     <div class="page-content">
 
-      <div class="page-hero">
+      <div class="page-hero" data-anim="fade-in">
         <div class="section-label">Quem confia na Usifast</div>
         <h1>Clientes &amp; Parceiros.</h1>
         <p>Empresas de diferentes segmentos que escolheram precisão, prazo e qualidade.</p>
@@ -2106,10 +2245,10 @@
 
       <!-- NÚMEROS -->
       <div class="numeros-clientes">
-        <div class="numero-item"><h3>XXX+</h3><p>Clientes atendidos</p></div>
-        <div class="numero-item"><h3>XX+</h3><p>Anos de mercado</p></div>
-        <div class="numero-item"><h3>XX</h3><p>Estados atendidos</p></div>
-        <div class="numero-item"><h3>98%</h3><p>Índice de satisfação</p></div>
+        <div class="numero-item" data-anim="fade-up" data-delay="100"><h3><span data-count="300" data-suffix="+">300+</span></h3><p>Clientes atendidos</p></div>
+        <div class="numero-item" data-anim="fade-up" data-delay="200"><h3><span data-count="20" data-suffix="+">20+</span></h3><p>Anos de mercado</p></div>
+        <div class="numero-item" data-anim="fade-up" data-delay="300"><h3><span data-count="15" data-suffix="">15</span></h3><p>Estados atendidos</p></div>
+        <div class="numero-item" data-anim="fade-up" data-delay="400"><h3><span data-count="98" data-suffix="%">98%</span></h3><p>Índice de satisfação</p></div>
       </div>
 
       <!-- LOGOS CLIENTES -->
@@ -2136,7 +2275,7 @@
         <div class="section-title">Depoimentos de quem<br>já trabalhou conosco.</div>
         <div class="depoimentos-grid">
 
-          <div class="depoimento-card">
+          <div class="depoimento-card" data-anim="fade-up">
             <p class="depoimento-texto">"A Usifast entregou um lote de 500 peças com tolerância de ±0,01mm sem nenhuma reprovação no recebimento. Cumprimento de prazo e qualidade impecável. Hoje são nosso fornecedor principal de usinagem."</p>
             <div class="depoimento-autor">
               <div class="depoimento-avatar">CM</div>
@@ -2147,7 +2286,7 @@
             </div>
           </div>
 
-          <div class="depoimento-card">
+          <div class="depoimento-card" data-anim="fade-up">
             <p class="depoimento-texto">"Tínhamos uma parada de linha crítica e precisávamos de uma peça com urgência. A Usifast atendeu no mesmo dia, orçou em 2 horas e entregou antes do prazo. Salvaram nossa operação."</p>
             <div class="depoimento-autor">
               <div class="depoimento-avatar" style="background:#059669">FA</div>
@@ -2158,7 +2297,7 @@
             </div>
           </div>
 
-          <div class="depoimento-card">
+          <div class="depoimento-card" data-anim="fade-up">
             <p class="depoimento-texto">"Trabalho com a Usifast há mais de 3 anos para recuperação de peças da nossa linha. O atendimento é direto, sem enrolação. O técnico entende do processo e sugere a melhor solução, não só executa."</p>
             <div class="depoimento-autor">
               <div class="depoimento-avatar" style="background:#7c3aed">RS</div>
@@ -2169,7 +2308,7 @@
             </div>
           </div>
 
-          <div class="depoimento-card">
+          <div class="depoimento-card" data-anim="fade-up">
             <p class="depoimento-texto">"Precisávamos de dispositivos de fixação com geometria complexa. A Usifast desenvolveu do zero, com tolerâncias abaixo de 0,02mm. Resultado: zero rejeitos na linha de montagem após implantação."</p>
             <div class="depoimento-autor">
               <div class="depoimento-avatar" style="background:#dc2626">AC</div>
@@ -2307,27 +2446,26 @@
   <script>
     // ── Roteamento ──────────────────────────────────────────────
     function navigate(page) {
-      // Esconde todas as páginas
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
 
-      // Mostra a página alvo
       const target = document.getElementById('page-' + page);
       if (target) target.classList.add('active');
 
-      // Atualiza nav links
       document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
         a.classList.toggle('active', a.dataset.page === page);
       });
 
-      // Atualiza URL hash
       history.pushState(null, '', '#' + page);
-
-      // Scroll topo
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Fecha menu mobile
       document.getElementById('navLinks').classList.remove('open');
       document.getElementById('hamburger').classList.remove('open');
+
+      // Reinicia animações da nova página
+      setTimeout(() => {
+        if (target) animateVisible(target);
+        startCounters(target);
+      }, 80);
     }
 
     // ── Leitura do hash inicial ──────────────────────────────────
@@ -2337,7 +2475,14 @@
     }
 
     window.addEventListener('popstate', loadFromHash);
-    window.addEventListener('DOMContentLoaded', loadFromHash);
+    window.addEventListener('DOMContentLoaded', () => {
+      loadFromHash();
+      // Primeira renderização
+      setTimeout(() => {
+        const active = document.querySelector('.page.active');
+        if (active) { animateVisible(active); startCounters(active); }
+      }, 150);
+    });
 
     // ── Hamburger menu ──────────────────────────────────────────
     function toggleMenu() {
@@ -2348,7 +2493,47 @@
     // ── Navbar shadow no scroll ──────────────────────────────────
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+      // Anima elementos visíveis no scroll
+      const activePage = document.querySelector('.page.active');
+      if (activePage) animateVisible(activePage);
     });
+
+    // ── Intersection Observer — animar no scroll ─────────────────
+    function animateVisible(container) {
+      const els = (container || document).querySelectorAll('[data-anim]:not(.visible)');
+      els.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+          el.classList.add('visible');
+        }
+      });
+      // section-title também
+      const titles = (container || document).querySelectorAll('.section-title:not(.visible)');
+      titles.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.92) el.classList.add('visible');
+      });
+    }
+
+    // ── Contadores animados ──────────────────────────────────────
+    function startCounters(container) {
+      const nums = (container || document).querySelectorAll('[data-count]:not([data-counted])');
+      nums.forEach(el => {
+        el.setAttribute('data-counted', '1');
+        const target = parseInt(el.getAttribute('data-count'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        const dur    = 1600;
+        const step   = 16;
+        const steps  = dur / step;
+        let current  = 0;
+        const inc    = target / steps;
+        const timer  = setInterval(() => {
+          current += inc;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = Math.floor(current) + suffix;
+        }, step);
+      });
+    }
 
     // ── Carrossel ───────────────────────────────────────────────
     (function() {
