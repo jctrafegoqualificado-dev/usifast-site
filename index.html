@@ -1383,7 +1383,7 @@
     /* MVV CARDS */
     .mvv-section {
       padding: 0;
-      background: var(--cinza-escuro);
+      background: var(--cinza);
       position: relative;
       overflow: hidden;
     }
@@ -1393,7 +1393,7 @@
       position: absolute;
       top: -40%; right: -10%;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(4,126,196,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(4,126,196,0.08) 0%, transparent 70%);
       border-radius: 50%;
     }
 
@@ -1403,8 +1403,8 @@
       z-index: 1;
     }
 
-    .mvv-section .section-label { color: #7dd3fc; }
-    .mvv-section .section-title { color: var(--branco); }
+    .mvv-section .section-label { color: var(--azul); }
+    .mvv-section .section-title { color: var(--cinza-escuro); }
 
     .mvv-cards {
       display: grid;
@@ -1429,13 +1429,13 @@
     }
 
     .mvv-card-new.visao {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--branco);
+      border: 1px solid #e2e8f0;
     }
 
     .mvv-card-new.valores {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--branco);
+      border: 1px solid #e2e8f0;
     }
 
     .mvv-card-new::after {
@@ -1459,24 +1459,33 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
       margin-bottom: 0.6rem;
       display: block;
     }
 
+    .mvv-card-new.missao .mvv-card-tag { color: rgba(255,255,255,0.6); }
+    .mvv-card-new.visao  .mvv-card-tag,
+    .mvv-card-new.valores .mvv-card-tag { color: var(--azul); }
+
     .mvv-card-new h3 {
       font-size: 1.5rem;
       font-weight: 900;
-      color: var(--branco);
       margin-bottom: 1rem;
       line-height: 1.2;
     }
 
+    .mvv-card-new.missao h3 { color: var(--branco); }
+    .mvv-card-new.visao h3,
+    .mvv-card-new.valores h3 { color: var(--cinza-escuro); }
+
     .mvv-card-new p {
       font-size: 0.92rem;
-      color: rgba(255,255,255,0.7);
       line-height: 1.75;
     }
+
+    .mvv-card-new.missao p { color: rgba(255,255,255,0.8); }
+    .mvv-card-new.visao p,
+    .mvv-card-new.valores p { color: var(--texto-leve); }
 
     .valores-pills {
       display: flex;
@@ -1486,17 +1495,17 @@
     }
 
     .valor-pill {
-      background: rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.85);
+      background: var(--azul-light);
+      color: var(--azul-dark);
       font-size: 0.78rem;
       font-weight: 600;
       padding: 0.35rem 0.85rem;
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.15);
+      border: 1px solid rgba(4,126,196,0.2);
       transition: background 0.2s;
     }
 
-    .mvv-card-new:hover .valor-pill { background: rgba(255,255,255,0.18); }
+    .mvv-card-new:hover .valor-pill { background: rgba(4,126,196,0.15); }
 
     @media (max-width: 768px) {
       .mvv-cards { grid-template-columns: 1fr; }
@@ -2254,7 +2263,7 @@
 
             <div class="mvv-card-new visao" data-anim="fade-up" data-delay="200">
               <span class="mvv-big-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
               </span>
               <span class="mvv-card-tag">Visão</span>
               <h3>Onde queremos chegar.</h3>
@@ -2263,7 +2272,7 @@
 
             <div class="mvv-card-new valores" data-anim="fade-up" data-delay="300">
               <span class="mvv-big-icon">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#047ec4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
               </span>
               <span class="mvv-card-tag">Valores</span>
               <h3>Como nos guiamos.</h3>
