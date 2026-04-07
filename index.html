@@ -1063,6 +1063,113 @@
       gap: 0.3rem;
     }
 
+    /* ===== PÁGINA CLIENTES & PARCEIROS ===== */
+    .clientes-content { padding: 80px 5%; }
+
+    .logos-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .logo-card {
+      background: var(--branco);
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      transition: all 0.3s;
+      filter: grayscale(100%);
+      opacity: 0.6;
+    }
+
+    .logo-card:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      border-color: var(--azul);
+      box-shadow: 0 4px 20px rgba(4,126,196,0.1);
+    }
+
+    .logo-card span {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--texto-leve);
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .parceiros-section {
+      padding: 60px 5% 80px;
+      background: var(--cinza);
+    }
+
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .depoimento-card {
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 2rem;
+      border-left: 4px solid var(--azul);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .depoimento-texto {
+      font-size: 0.95rem;
+      color: var(--texto);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .depoimento-autor {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .depoimento-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--azul);
+      color: var(--branco);
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .depoimento-nome { font-weight: 700; font-size: 0.95rem; color: var(--cinza-escuro); }
+    .depoimento-cargo { font-size: 0.8rem; color: var(--texto-leve); }
+
+    .numeros-clientes {
+      background: var(--azul);
+      padding: 60px 5%;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+      flex-wrap: wrap;
+    }
+
+    .numeros-clientes .numero-item h3 { font-size: 3rem; font-weight: 900; color: var(--branco); }
+    .numeros-clientes .numero-item p  { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 0.4rem; text-align: center; }
+
+    @media (max-width: 768px) {
+      .logos-grid { grid-template-columns: repeat(2, 1fr); }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .numeros-clientes { gap: 2rem; }
+    }
+
     /* ===== FORMULÁRIO FLUTUANTE LATERAL ===== */
     .form-float-btn {
       position: fixed;
@@ -1347,6 +1454,7 @@
       <li><a onclick="navigate('servicos')" data-page="servicos">Serviços</a></li>
       <li><a onclick="navigate('segmentos')" data-page="segmentos">Segmentos</a></li>
       <li><a onclick="navigate('projetos')" data-page="projetos">Projetos</a></li>
+      <li><a onclick="navigate('clientes')" data-page="clientes">Clientes</a></li>
       <li><a onclick="navigate('contato')" data-page="contato" class="nav-cta">Orçamento</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -1986,6 +2094,104 @@
     </div>
   </div>
 
+  <!-- ===== PAGE: CLIENTES & PARCEIROS ===== -->
+  <div class="page" id="page-clientes">
+    <div class="page-content">
+
+      <div class="page-hero">
+        <div class="section-label">Quem confia na Usifast</div>
+        <h1>Clientes &amp; Parceiros.</h1>
+        <p>Empresas de diferentes segmentos que escolheram precisão, prazo e qualidade.</p>
+      </div>
+
+      <!-- NÚMEROS -->
+      <div class="numeros-clientes">
+        <div class="numero-item"><h3>XXX+</h3><p>Clientes atendidos</p></div>
+        <div class="numero-item"><h3>XX+</h3><p>Anos de mercado</p></div>
+        <div class="numero-item"><h3>XX</h3><p>Estados atendidos</p></div>
+        <div class="numero-item"><h3>98%</h3><p>Índice de satisfação</p></div>
+      </div>
+
+      <!-- LOGOS CLIENTES -->
+      <div class="clientes-content">
+        <div class="section-label">Nossos clientes</div>
+        <div class="section-title">Empresas que confiam<br>na nossa precisão.</div>
+        <div class="logos-grid">
+          <div class="logo-card"><span>[LOGO CLIENTE 1]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 2]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 3]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 4]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 5]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 6]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 7]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 8]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 9]</span></div>
+          <div class="logo-card"><span>[LOGO CLIENTE 10]</span></div>
+        </div>
+      </div>
+
+      <!-- DEPOIMENTOS -->
+      <div class="parceiros-section">
+        <div class="section-label">O que dizem sobre nós</div>
+        <div class="section-title">Depoimentos de quem<br>já trabalhou conosco.</div>
+        <div class="depoimentos-grid">
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">"A Usifast entregou um lote de 500 peças com tolerância de ±0,01mm sem nenhuma reprovação no recebimento. Cumprimento de prazo e qualidade impecável. Hoje são nosso fornecedor principal de usinagem."</p>
+            <div class="depoimento-autor">
+              <div class="depoimento-avatar">CM</div>
+              <div>
+                <div class="depoimento-nome">Carlos Mendonça</div>
+                <div class="depoimento-cargo">Gerente de Produção — Indústria Automotiva</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">"Tínhamos uma parada de linha crítica e precisávamos de uma peça com urgência. A Usifast atendeu no mesmo dia, orçou em 2 horas e entregou antes do prazo. Salvaram nossa operação."</p>
+            <div class="depoimento-autor">
+              <div class="depoimento-avatar" style="background:#059669">FA</div>
+              <div>
+                <div class="depoimento-nome">Fernando Alves</div>
+                <div class="depoimento-cargo">Coordenador de Manutenção — Indústria Alimentícia</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">"Trabalho com a Usifast há mais de 3 anos para recuperação de peças da nossa linha. O atendimento é direto, sem enrolação. O técnico entende do processo e sugere a melhor solução, não só executa."</p>
+            <div class="depoimento-autor">
+              <div class="depoimento-avatar" style="background:#7c3aed">RS</div>
+              <div>
+                <div class="depoimento-nome">Roberto Silva</div>
+                <div class="depoimento-cargo">Engenheiro de Processo — Petroquímica</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depoimento-card">
+            <p class="depoimento-texto">"Precisávamos de dispositivos de fixação com geometria complexa. A Usifast desenvolveu do zero, com tolerâncias abaixo de 0,02mm. Resultado: zero rejeitos na linha de montagem após implantação."</p>
+            <div class="depoimento-autor">
+              <div class="depoimento-avatar" style="background:#dc2626">AC</div>
+              <div>
+                <div class="depoimento-nome">Ana Carvalho</div>
+                <div class="depoimento-cargo">Gerente de Qualidade — Equipamentos Médicos</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <section class="cta-section">
+        <h2>Sua empresa pode ser a próxima.</h2>
+        <p>Entre em contato e veja como a Usifast pode atender sua operação.</p>
+        <a class="btn-primary" onclick="toggleFormPanel()">Solicitar Orçamento</a>
+      </section>
+
+    </div>
+  </div>
+
   <!-- FORMULÁRIO FLUTUANTE LATERAL -->
   <div class="form-float-btn" onclick="toggleFormPanel()">Solicitar Orçamento</div>
 
@@ -2064,6 +2270,7 @@
           <li><a onclick="navigate('sobre')">Quem somos</a></li>
           <li><a onclick="navigate('sobre')">Nossa história</a></li>
           <li><a onclick="navigate('projetos')">Projetos</a></li>
+          <li><a onclick="navigate('clientes')">Clientes & Parceiros</a></li>
           <li><a onclick="navigate('segmentos')">Segmentos</a></li>
           <li><a onclick="navigate('contato')">Solicitar Orçamento</a></li>
         </ul>
